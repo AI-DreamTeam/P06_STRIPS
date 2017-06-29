@@ -3,13 +3,8 @@
   (:action mover
      :parameters (?c ?m ?i ?f)
      :precondition (and (caja ?c) (punto ?i) (punto ?f) (mono ?m) (en ?m ?i) (en ?c ?i))
-     :effect (and (en ?c ?f)) (not (en ?c ?i)))
+     :effect (and (en ?c ?f)) (not (en ?c ?i)) (en ?m ?f) (not (en ?m ?i)))
   )
-  (:action agarrar
-     :parameters (?b ?p ?m)
-     :precondition (and (bananas ?b) (punto ?p) (mono ?m) (arriba ?m) (en ?m ?p) (en ?b ?p))
-     :effect ((manos ?b))
-     )
   (:action caminar
      :parameters (?m ?i ?f)
      :precondition (and (mono ?m) (punto ?i) (punto ?f) (abajo ?m) (en ?m ?i))
