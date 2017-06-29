@@ -1,0 +1,23 @@
+Estado Inicial: (En(mono,punto_C) Altura(abajo) Manos(vacias))
+
+Operadores: Mover(caja, puntoI, puntoF)
+                Precondición: abajo(caja) ^ En(mono, puntoI) ^ En(caja,puntoI)
+                Efecto: En(caja, puntoF) ^ ¬En(caja, puntoI) ^ En(mono, puntoF) ^ ¬En(mono, puntoI)
+
+            Agarrar(Bananas, punto)
+                Precondición: Altura(arriba) ^ En(mono, punto) ^ En(bananas, punto)
+                Efecto: Manos(bananas)
+
+            Caminar(puntoI, puntoF)
+                Precondición: Altura(abajo)
+                Efecto: En(mono,puntoF) ^ ¬En(mono, puntoI)
+
+            Subir(caja, mono, punto)
+                Precondición: Altura(abajo) ^ En(caja, punto) ^ En(mono, punto)
+                Efecto: Altura(arriba)
+
+            bajar(caja, mono, punto)
+                Precondición: Altura(arriba) ^ En(caja, punto) ^ En(mono, punto)
+                Efecto: Altura(abajo)
+
+Meta: (Manos(bananas))

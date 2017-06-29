@@ -1,0 +1,6 @@
+(define (problem agarrar-bananas)
+    (:domain chango)
+  (:init (and (punto a) (punto b) (punto c) (mono m) (caja c) (bananas ba)
+         (en ba b) (en c a) (en m c) (abajo m) (arriba ba))
+  (:goal (and (en m b) (arriba m))
+)

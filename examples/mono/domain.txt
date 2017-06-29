@@ -1,0 +1,28 @@
+(define (domain chango)
+  (:requirements :strips)
+  (:action mover
+     :parameters (?c ?m ?i ?f)
+     :precondition (and (caja ?c) (punto ?i) (punto ?f) (mono ?m) (en ?m ?i) (en ?c ?i))
+     :effect (and (en ?c ?f)) (not (en ?c ?i)))
+  )
+  (:action agarrar
+     :parameters (?b ?p ?m)
+     :precondition (and (bananas ?b) (punto ?p) (mono ?m) (arriba ?m) (en ?m ?p) (en ?b ?p))
+     :effect ((manos ?b))
+     )
+  (:action caminar
+     :parameters (?m ?i ?f)
+     :precondition (and (mono ?m) (punto ?i) (punto ?f) (abajo ?m) (en ?m ?i))
+     :effect (and (en ?m ?f) not (en ?m ?i))
+     )
+  (:action subir 
+     :parameters (?c ?m ?p)
+     :precondition (and (mono ?m) (caja ?c) (punto ?p) (abajo ?m) (en ?m ?p) (en ?c ?p))
+     :effect ((arriba ?m))
+     )
+  (:action bajar 
+     :parameters (?c ?m ?p)
+     :precondition (and (mono ?m) (caja ?c) (punto ?p) (arriba ?m) (en ?m ?p) (en ?c ?p))
+     :effect ((abajo ?m))
+     )
+)
